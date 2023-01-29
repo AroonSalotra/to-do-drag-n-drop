@@ -5,98 +5,61 @@ import { BsThreeDots } from "react-icons/bs"
 const Dropzone = ({ title, data, id, dragIndex }) => {
 
 
-    const randomId = useId()
-    // const [listData, setListData] = useState(data)
-
-    const logData = () => {
-        console.log(data)
-    }
-
-    let thisIndex = dragIndex
-
-
     return (
         <>
-            {/* <DragDropContext onDragEnd={handleDragEnd}> */}
+            <Droppable droppableId={id}>
 
-            <div style={{
+                {(provided) => (
 
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "5px"
+                    <div
+                        {...provided.droppableProps} ref={provided.innerRef} >
 
-            }}>
+                        <div className="flex justify-between items-center">
+                            <h2 className="uppercase font-bold text-2xl bg-neutral-700 p-4">
+                                {title ? title : "TITLE"}
+                            </h2>
 
+                            <button type="button">
+                                <BsThreeDots className="text-4xl" />
+                            </button>
+                        </div>
 
-                <Droppable droppableId={id}>
+                        <div className="pt-8 bg-neutral-600 w-96 min-h-[30rem] max-h-fit">
 
-                    {(provided) => (
+                            {data ? <ul className="card-list">
 
-                        <div className="dropzone"
-                            {...provided.droppableProps} ref={provided.innerRef} >
+                                {data.map((item, index) => {
+                                    return <Draggable key={`${id} ${index}`}
+                                        draggableId={id + index.toString()}
+                                        index={index}>
 
-                            <div>
-                                <h2 className="uppercase font-bold text-2xl bg-neutral-700 p-4">
-                                    {title ? title : "TITLE"}
-                                </h2>
+                                        {(provided) => (
 
-                                <button type="button">
-                                    <BsThreeDots style={{
-                                        fontSize: "2rem"
-                                    }} />
-                                </button>
-                            </div>
+                                            <li
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                ref={provided.innerRef}>
 
-                            <div className="pt-8 bg-neutral-600 w-96 min-h-[30rem] max-h-fit">
+                                                {item}
 
-                                {data ? <ul className="card-list">
+                                            </li>
+                                        )}
 
-                                    {data.map((item, index) => {
-                                        return <Draggable key={`${id} ${index}`}
-                                            draggableId={id + index.toString()}
-                                            index={index}>
+                                    </Draggable>
 
-                                            {(provided) => (
+                                })}
 
-                                                <li
-                                                    {...provided.draggableProps}
-                                                    {...provided.dragHandleProps}
-                                                    ref={provided.innerRef}>
+                                {provided.placeholder}
 
-                                                    {item}
-
-                                                </li>
-                                            )}
-
-                                        </Draggable>
-
-                                    })}
-
-                                    {provided.placeholder}
-
-                                </ul> : null}
-
-                            </div>
+                            </ul> : null}
 
                         </div>
 
-                    )}
+                    </div>
 
-                </Droppable>
+                )}
 
-                {/* </DragDropContext> */}
-
-                <button style={{
-                    width: "12rem",
-                    height: "3rem",
-                    cursor: "pointer"
-                }}
-                    onClick={logData}>
-                    LOG DATA
-                </button>
-
-            </div>
+            </Droppable>
 
         </>
 

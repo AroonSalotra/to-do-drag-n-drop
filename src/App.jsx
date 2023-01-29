@@ -76,12 +76,12 @@ function App() {
   return (
     <>
 
-      <div className="flex justify-center gap-8">
+      <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center gap-8 pt-8">
 
         <DragDropContext onDragEnd={handleDragEnd}>
 
           <Dropzone
-            title={"Tasks"}
+            title={"To-Do"}
             data={tasks}
             id={"tasks"}
           // dragIndex={1}
