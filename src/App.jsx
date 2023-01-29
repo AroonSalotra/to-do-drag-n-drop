@@ -83,6 +83,7 @@ function App() {
           <Dropzone
             title={"To-Do"}
             data={tasks}
+            setData={setTasks}
             id={"tasks"}
           // dragIndex={1}
           />
@@ -90,6 +91,7 @@ function App() {
           <Dropzone
             title={"In progress"}
             data={progress}
+            setData={setProgress}
             id={"progress"}
           // dragIndex={21}
           />
@@ -97,6 +99,7 @@ function App() {
           <Dropzone
             title={"Completed"}
             data={completed}
+            setData={setCompleted}
             id="completed"
           // dragIndex={41}
           />

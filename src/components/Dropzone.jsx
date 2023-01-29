@@ -1,8 +1,7 @@
-import { Droppable, Draggable, DragDropContext } from "react-beautiful-dnd";
-import { useState, useId } from "react";
-import { BsThreeDots } from "react-icons/bs"
+import { Droppable, Draggable } from "react-beautiful-dnd";
+import Options from "./Options";
 
-const Dropzone = ({ title, data, id, dragIndex }) => {
+const Dropzone = ({ title, data, setData, id, dragIndex }) => {
 
 
     return (
@@ -15,13 +14,13 @@ const Dropzone = ({ title, data, id, dragIndex }) => {
                         {...provided.droppableProps} ref={provided.innerRef} >
 
                         <div className="flex justify-between items-center">
+
                             <h2 className="uppercase font-bold text-2xl bg-neutral-700 p-4">
                                 {title ? title : "TITLE"}
                             </h2>
 
-                            <button type="button">
-                                <BsThreeDots className="text-4xl" />
-                            </button>
+                            <Options setData={setData} />
+
                         </div>
 
                         <div className="pt-8 bg-neutral-600 w-96 min-h-[30rem] max-h-fit">
