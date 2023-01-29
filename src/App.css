@@ -29,7 +29,6 @@
 }
 
 .card-list li {
-  /* border: 2px solid white; */
   width: 14rem;
   width: 20rem;
   padding: 1.5rem;
@@ -62,7 +61,6 @@
   padding-top: 2rem;
   background-color: rgb(68, 66, 66);
   width: 25rem;
-  /* height: 40rem; */
   min-height: 30rem;
   max-height: fit-content;
 }

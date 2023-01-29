@@ -13,28 +13,29 @@ function App() {
     "Add mobile functionality"
   ])
 
-  const handleListChange = (result) => {
+  const handleDragEnd = (result) => {
 
     const { source, destination } = result
 
+    // Handle error if no destination or if source = destination
     if (!destination) return
 
-    let thisSource;
-    let thisSourceSet;
-    let thisDestination;
+    let currentSource;
+    let currentSourceSet;
+    let currentDestination;
 
     switch (source.droppableId) {
       case 'tasks':
-        thisSource = [...tasks]
-        thisSourceSet = setTasks
+        currentSource = [...tasks]
+        currentSourceSet = setTasks
         break
       case 'progress':
-        thisSource = [...progress]
-        thisSourceSet = setProgress
+        currentSource = [...progress]
+        currentSourceSet = setProgress
         break
       case 'completed':
-        thisSource = [...completed]
-        thisSourceSet = setCompleted
+        currentSource = [...completed]
+        currentSourceSet = setCompleted
         break
       default:
         return
@@ -42,30 +43,35 @@ function App() {
 
     switch (destination.droppableId) {
       case 'tasks':
-        thisDestination = setTasks
+        currentDestination = setTasks
         break
       case 'progress':
-        thisDestination = setProgress
+        currentDestination = setProgress
         break
       case 'completed':
-        thisDestination = setCompleted
+        currentDestination = setCompleted
         break
       default:
         return
     }
 
-    const [getItem] = thisSource.splice(source.index, 1)
+    const [getItem] = currentSource.splice(source.index, 1)
 
-    thisDestination(d => [...d, getItem])
 
-    thisSourceSet(thisSource)
+    // If column is same, change order of array, else add to selected array
+    if (source.droppableId === destination.droppableId) {
+
+      currentSource.splice(destination.index, 0, getItem)
+      currentSourceSet(currentSource)
+
+    } else {
+
+      currentDestination(d => [...d, getItem])
+      currentSourceSet(currentSource)
+
+    }
 
   }
-
-  const handleDragEnd = (result) => handleListChange(result)
-
-
-
 
   return (
     <>
@@ -78,21 +84,21 @@ function App() {
             title={"Tasks"}
             data={tasks}
             id={"tasks"}
-            dragIndex={1}
+          // dragIndex={1}
           />
 
           <Dropzone
             title={"In progress"}
             data={progress}
             id={"progress"}
-            dragIndex={21}
+          // dragIndex={21}
           />
 
           <Dropzone
             title={"Completed"}
             data={completed}
             id="completed"
-            dragIndex={41}
+          // dragIndex={41}
           />
 
         </DragDropContext>
@@ -100,7 +106,6 @@ function App() {
       </div>
 
     </>
-
 
   )
 }
