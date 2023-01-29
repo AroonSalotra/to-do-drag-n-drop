@@ -1,5 +1,6 @@
 import { Droppable, Draggable, DragDropContext } from "react-beautiful-dnd";
 import { useState, useId } from "react";
+import { BsThreeDots } from "react-icons/bs"
 
 const Dropzone = ({ title, data, id, dragIndex }) => {
 
@@ -35,9 +36,17 @@ const Dropzone = ({ title, data, id, dragIndex }) => {
                         <div className="dropzone"
                             {...provided.droppableProps} ref={provided.innerRef} >
 
-                            <h2 className="title">
-                                {title ? title : "TITLE"}
-                            </h2>
+                            <div>
+                                <h2 className="title">
+                                    {title ? title : "TITLE"}
+                                </h2>
+
+                                <button type="button">
+                                    <BsThreeDots style={{
+                                        fontSize: "2rem"
+                                    }} />
+                                </button>
+                            </div>
 
                             <div className="dropzone-area">
 
