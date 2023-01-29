@@ -37,7 +37,7 @@ const Dropzone = ({ title, data, id, dragIndex }) => {
                             {...provided.droppableProps} ref={provided.innerRef} >
 
                             <div>
-                                <h2 className="title">
+                                <h2 className="uppercase font-bold text-2xl bg-neutral-700 p-4">
                                     {title ? title : "TITLE"}
                                 </h2>
 
@@ -48,7 +48,7 @@ const Dropzone = ({ title, data, id, dragIndex }) => {
                                 </button>
                             </div>
 
-                            <div className="dropzone-area">
+                            <div className="pt-8 bg-neutral-600 w-96 min-h-[30rem] max-h-fit">
 
                                 {data ? <ul className="card-list">
 

@@ -1,27 +1,8 @@
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-button {
-  border: none;
-  background-color: inherit;
-}
-
-.App {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
 }
 
 .card-list {
@@ -48,23 +29,4 @@ button {
 
 .card-list li:active {
   background-color: rgba(104, 103, 103, 0.712);
-}
-
-.dropzone {}
-
-.title {
-  text-transform: uppercase;
-}
-
-.dropzone h2 {
-  background-color: rgb(44, 43, 43);
-  padding: 1rem;
-}
-
-.dropzone-area {
-  padding-top: 2rem;
-  background-color: rgb(68, 66, 66);
-  width: 25rem;
-  min-height: 30rem;
-  max-height: fit-content;
 }
