@@ -8,7 +8,7 @@ function App() {
   const [completed, setCompleted] = useState([])
   const [progress, setProgress] = useState([])
   const [tasks, setTasks] = useState([
-    "Finish footer",
+    "Add date tag",
     "Add support section",
     "Add mobile functionality"
   ])

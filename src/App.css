@@ -4,32 +4,18 @@
   text-align: center;
 }
 
-.card-list {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.card-list li {
-  width: 14rem;
-  width: 20rem;
-  padding: 1.5rem;
-  cursor: pointer;
-  background-color: rgb(75, 71, 71);
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.card-list li:hover {
-  background-color: rgba(192, 187, 187, 0.267);
-}
-
-.card-list li:active {
-  background-color: rgba(104, 103, 103, 0.712);
-}
-
 .hide {
   display: none;
+}
+
+.task-col-a {
+  @apply bg-lime-400
+}
+
+.task-col-b {
+  @apply bg-red-400
+}
+
+.task-col-c {
+  @apply bg-amber-400
 }

@@ -40,11 +40,9 @@ const Options = ({ setData }) => {
                 <button
                     onClick={handleButtonClick}>
 
-                    <BsPlusLg
-                        className={`${isInputActive ? "rotate-45" : "rotate-0"} text-3xl transition-all`} />
+                    <BsPlusLg className={`${isInputActive ? "rotate-45" : "rotate-0"} text-3xl transition-all`} />
 
                 </button>
-
 
             </form>
         </>
