@@ -9,7 +9,7 @@ import {
     onAuthStateChanged
 } from "firebase/auth"
 
-const RegisterForm = () => {
+const RegisterForm = ({ userId, setUserId }) => {
 
     const [inputEmail, setInputEmail] = useState("")
     const [inputPassword, setInputPassword] = useState("")
@@ -54,10 +54,12 @@ const RegisterForm = () => {
 
     const handleLogIn = () => {
         signInWithEmailAndPassword(auth, inputEmail, inputPassword)
-            .then(() => {
+            .then((cred) => {
                 setInputEmail(email => "")
                 setInputPassword(password => "")
                 navigate("/board")
+                // console.log(cred.user.uid)
+                setUserId(id => cred.user.uid)
 
             })
             .catch((err) => {

@@ -1,15 +1,20 @@
 import './App.css'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Board from './components/Board'
 import RegisterForm from './components/RegisterForm'
-import { onAuthStateChanged, signOut } from "firebase/auth"
-import { useEffect, useState } from 'react'
+import { onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "firebase/auth"
 import { auth, db } from "./firebase-config"
-import { useNavigate } from "react-router-dom";
 import Header from './components/Header'
 
 
 function App() {
+
+  const [userId, setUserId] = useState(null)
+
+  useEffect(() => {
+    console.log(userId)
+  }, [userId])
 
   return (
     <>
@@ -20,9 +25,9 @@ function App() {
 
         <Routes>
 
-          <Route path='/' element={<RegisterForm />} />
+          <Route path='/' element={<RegisterForm userId={userId} setUserId={setUserId} />} />
 
-          <Route path='/board' element={<Board />} />
+          <Route path='/board' element={<Board userId={userId} setUserId={setUserId} />} />
 
         </Routes>
 

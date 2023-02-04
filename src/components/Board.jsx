@@ -3,11 +3,16 @@ import Dropzone from "./Dropzone"
 import { DragDropContext } from 'react-beautiful-dnd'
 import { onAuthStateChanged } from "firebase/auth"
 import { auth, db } from "../firebase-config"
-import { collection, getDocs, getDoc, doc } from "firebase/firestore/lite"
+import {
+    collection,
+    getDocs,
+    getDoc,
+    doc,
+    setDoc
+} from "firebase/firestore/lite"
 
-const Board = () => {
+const Board = ({ userId, setUserId }) => {
 
-    const [userId, setUserId] = useState(null)
     const [completed, setCompleted] = useState([])
     const [progress, setProgress] = useState([])
     const [tasks, setTasks] = useState(null)
@@ -17,7 +22,7 @@ const Board = () => {
         const getLoggedInUser = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUserId(cu => user.uid)
-                console.log(`current userId: ${user.uid}`)
+                // console.log(`current userId: ${user.uid}`)
             } else {
                 setUserId(null)
             }
@@ -27,7 +32,7 @@ const Board = () => {
             const colRef = doc(db, "notes", userId)
             const getCollection = getDoc(colRef)
                 .then((snap) => {
-                    console.log(snap.data())
+                    // console.log(snap.data())
                     setTasks(t => snap.data().todo)
                     setCompleted(c => snap.data().completed)
                     setProgress(p => snap.data().progress)
@@ -38,8 +43,6 @@ const Board = () => {
         }
         return getLoggedInUser
     }, [userId])
-
-    console.log(completed)
 
 
     const handleDragEnd = (result) => {
@@ -101,6 +104,11 @@ const Board = () => {
         }
 
     }
+
+    const handleClick = () => {
+
+    }
+
     return (
         <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center gap-8 pt-8">
             <DragDropContext onDragEnd={handleDragEnd}>
@@ -126,6 +134,11 @@ const Board = () => {
                 />
 
             </DragDropContext>
+
+            <button onClick={handleClick}>
+                Sync
+            </button>
+
         </div>
     );
 }
