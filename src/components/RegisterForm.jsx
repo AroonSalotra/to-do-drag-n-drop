@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { auth } from "../firebase-config";
+import { useNavigate } from "react-router-dom";
+import { auth, db } from "../firebase-config";
+import { getDocs, collection, addDoc, setDoc, doc } from "firebase/firestore/lite"
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -12,7 +14,7 @@ const RegisterForm = () => {
     const [inputEmail, setInputEmail] = useState("")
     const [inputPassword, setInputPassword] = useState("")
     const [showError, setShowError] = useState(null)
-
+    const navigate = useNavigate()
 
 
     const handleRegister = (e) => {
@@ -22,9 +24,11 @@ const RegisterForm = () => {
 
         createUserWithEmailAndPassword(auth, inputEmail, inputPassword)
             .then((cred) => {
-                console.log(cred)
                 setInputEmail(email => "")
                 setInputPassword(password => "")
+                setDoc(doc(db, "notes", cred.user.uid), {
+                });
+                navigate("/board")
             })
             .catch((error) => {
                 console.log(error.code + error.message)
@@ -32,12 +36,24 @@ const RegisterForm = () => {
             })
     }
 
+    const handleClick = () => {
+        const colRef = collection(db, "notes")
+
+        setDoc(doc(db, "notes", "LA"), {
+            name: "Los Angeles",
+            state: "CA",
+            country: "USA"
+        });
+
+    }
 
     const handleLogIn = () => {
         signInWithEmailAndPassword(auth, inputEmail, inputPassword)
             .then(() => {
                 setInputEmail(email => "")
                 setInputPassword(password => "")
+                navigate("/board")
+
             })
             .catch((err) => {
                 console.log(err.message)
@@ -94,6 +110,11 @@ const RegisterForm = () => {
                     <button className="uppercase bg-neutral-600"
                         onClick={handleRegister}>
                         Register
+                    </button>
+
+                    <button className="uppercase bg-neutral-600"
+                        onClick={handleClick}>
+                        Debug
                     </button>
 
                 </fieldset>

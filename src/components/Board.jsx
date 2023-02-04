@@ -1,16 +1,43 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Dropzone from "./Dropzone"
 import { DragDropContext } from 'react-beautiful-dnd'
+import { onAuthStateChanged } from "firebase/auth"
+import { auth, db } from "../firebase-config"
+import { collection, getDocs, getDoc, doc } from "firebase/firestore/lite"
 
 const Board = () => {
 
+    const [userId, setUserId] = useState(null)
     const [completed, setCompleted] = useState([])
     const [progress, setProgress] = useState([])
-    const [tasks, setTasks] = useState([
-        "Add date tag",
-        "Add support section",
-        "Add mobile functionality"
-    ])
+    const [tasks, setTasks] = useState(null)
+
+    useEffect(() => {
+
+        const getLoggedInUser = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUserId(cu => user.uid)
+                console.log(`current userId: ${user.uid}`)
+            } else {
+                setUserId(null)
+            }
+        })
+
+        if (userId !== null) {
+            const colRef = doc(db, "notes", userId)
+            const getCollection = getDoc(colRef)
+                .then((snap) => {
+                    console.log(snap.data().tasks)
+                    setTasks(t => snap.data().tasks)
+                })
+                .catch((err) => {
+                    console.log(err.message)
+                })
+        }
+
+
+        return getLoggedInUser
+    }, [userId])
 
     const handleDragEnd = (result) => {
 
@@ -74,7 +101,6 @@ const Board = () => {
     return (
         <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center gap-8 pt-8">
             <DragDropContext onDragEnd={handleDragEnd}>
-
                 <Dropzone
                     title={"To-Do"}
                     data={tasks}
