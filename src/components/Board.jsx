@@ -106,6 +106,21 @@ const Board = ({ userId, setUserId }) => {
     }
 
     const handleClick = () => {
+        if (userId === null) return;
+
+        const colRef = doc(db, "notes", userId)
+
+        setDoc(doc(db, "notes", userId), {
+            todo: [...tasks],
+            progress: [...progress],
+            completed: [...completed]
+        })
+            .then(() => {
+                console.log("synced data")
+            })
+            .catch((err) => {
+                console.log(err.message)
+            })
 
     }
 
