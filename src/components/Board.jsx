@@ -27,17 +27,20 @@ const Board = () => {
             const colRef = doc(db, "notes", userId)
             const getCollection = getDoc(colRef)
                 .then((snap) => {
-                    console.log(snap.data().tasks)
-                    setTasks(t => snap.data().tasks)
+                    console.log(snap.data())
+                    setTasks(t => snap.data().todo)
+                    setCompleted(c => snap.data().completed)
+                    setProgress(p => snap.data().progress)
                 })
                 .catch((err) => {
                     console.log(err.message)
                 })
         }
-
-
         return getLoggedInUser
     }, [userId])
+
+    console.log(completed)
+
 
     const handleDragEnd = (result) => {
 

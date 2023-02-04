@@ -27,8 +27,13 @@ const RegisterForm = () => {
                 setInputEmail(email => "")
                 setInputPassword(password => "")
                 setDoc(doc(db, "notes", cred.user.uid), {
-                });
-                navigate("/board")
+                    todo: ["Add a note to get started"],
+                    completed: [],
+                    progress: []
+                })
+                    .then(() => {
+                        navigate("/board")
+                    });
             })
             .catch((error) => {
                 console.log(error.code + error.message)
@@ -40,9 +45,9 @@ const RegisterForm = () => {
         const colRef = collection(db, "notes")
 
         setDoc(doc(db, "notes", "LA"), {
-            name: "Los Angeles",
-            state: "CA",
-            country: "USA"
+            todo: ["Add a note to get started"],
+            completed: [],
+            progress: []
         });
 
     }
