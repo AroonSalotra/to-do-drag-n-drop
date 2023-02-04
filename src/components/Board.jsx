@@ -10,19 +10,21 @@ import {
     doc,
     setDoc
 } from "firebase/firestore/lite"
+import { useNavigate } from "react-router-dom"
 
 const Board = ({ userId, setUserId }) => {
 
     const [completed, setCompleted] = useState([])
     const [progress, setProgress] = useState([])
     const [tasks, setTasks] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
 
         const getLoggedInUser = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUserId(cu => user.uid)
-                // console.log(`current userId: ${user.uid}`)
+                console.log(`current userId: ${user.uid}`)
             } else {
                 setUserId(null)
             }

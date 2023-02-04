@@ -6,6 +6,7 @@ import RegisterForm from './components/RegisterForm'
 import { onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "firebase/auth"
 import { auth, db } from "./firebase-config"
 import Header from './components/Header'
+import AccountForm from './components/AccountForm'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   useEffect(() => {
     console.log(userId)
   }, [userId])
+
 
   return (
     <>
@@ -30,7 +32,6 @@ function App() {
           <Route path='/board' element={<Board userId={userId} setUserId={setUserId} />} />
 
         </Routes>
-
       </BrowserRouter>
 
     </>
