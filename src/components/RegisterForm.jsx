@@ -36,17 +36,19 @@ const RegisterForm = ({ userId, setUserId }) => {
                         Log in
                     </button>
 
-                </fieldset>
-
-                    : null}
+                </fieldset> : null}
 
                 {isLoginForm ?
-                    <AccountForm formType={"Log in"} />
-                    : null}
+
+                    <AccountForm formType={"Log in"}
+                        setShowBtns={setShowBtns}
+                        setFormDisplay={setIsLoginForm} /> : null}
 
                 {isRegisterForm ?
-                    <AccountForm formType={"Register"} />
-                    : null}
+
+                    <AccountForm formType={"Register"}
+                        setShowBtns={setShowBtns}
+                        setFormDisplay={setIsRegisterForm} /> : null}
 
             </form>
         </>

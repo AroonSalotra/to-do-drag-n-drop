@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { auth, db } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 
-const AccountForm = ({ formType }) => {
+const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
 
     const [emailInput, setEmailInput] = useState("")
     const [passwordInput, setPasswordInput] = useState("")
@@ -54,36 +54,35 @@ const AccountForm = ({ formType }) => {
             <fieldset className="flex flex-col gap-2 mt-[10vh] w-full m-auto sm:w-96">
 
                 <input type="email"
-                    name=""
-                    id=""
+                    name="useremail"
+                    id="useremail"
                     placeholder="Your email"
-                    className="px-2"
+                    className="px-2 py-1"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
                 />
 
                 <input type="password"
-                    name=""
-                    id=""
+                    name="userpassword"
+                    id="userpassword"
                     placeholder="Your password"
-                    className="px-2"
+                    className="px-2 py-1"
                     value={passwordInput}
                     onChange={(e) => setPasswordInput(e.target.value)}
                 />
 
-                {formType === "Register" ?
 
+
+                {formType === "Register" ?
                     <button onClick={handleRegister}>
                         {formType ? formType : "add a formType prop"}
                     </button>
                     :
                     <button onClick={handleLogIn}>
                         {formType ? formType : "add a formType prop"}
-                    </button>
+                    </button>}
 
-                }
-
-
+                <button onClick={() => { setShowBtns(true); setFormDisplay(false) }}>Back</button>
 
             </fieldset>
         </>
