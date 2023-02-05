@@ -73,11 +73,15 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                 />
 
                 {formType === "Register" ?
-                    <button onClick={handleRegister}>
+                    <button onClick={handleRegister}
+                        className="bg-gradient-to-r from-purple-600 to-pink-500 w-fit px-4 mx-auto rounded-xl"
+                    >
                         {formType ? formType : "add a formType prop"}
                     </button>
                     :
-                    <button onClick={handleLogIn}>
+                    <button onClick={handleLogIn}
+                        className="bg-gradient-to-r from-purple-600 to-pink-500 w-fit px-4 mx-auto rounded-xl"
+                    >
                         {formType ? formType : "add a formType prop"}
                     </button>}
 
