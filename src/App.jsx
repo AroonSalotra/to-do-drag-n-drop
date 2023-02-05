@@ -14,7 +14,16 @@ function App() {
   const [userId, setUserId] = useState(null)
 
   useEffect(() => {
-    console.log(userId)
+
+    const getLoggedInUser = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserId(cu => user.uid)
+        console.log(`current userId: ${user.uid}`)
+      } else {
+        setUserId(null)
+      }
+    })
+
   }, [userId])
 
 
@@ -32,6 +41,7 @@ function App() {
           <Route path='/board' element={<Board userId={userId} setUserId={setUserId} />} />
 
         </Routes>
+
       </BrowserRouter>
 
     </>

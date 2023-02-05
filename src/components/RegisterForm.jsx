@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { auth, db } from "../firebase-config";
 import { getDocs, collection, addDoc, setDoc, doc } from "firebase/firestore/lite"
 import {
@@ -16,39 +16,52 @@ const RegisterForm = ({ userId, setUserId }) => {
     const [isRegisterForm, setIsRegisterForm] = useState(false)
     const [showBtns, setShowBtns] = useState(true)
 
+
     return (
         <>
             <form action=""
                 onSubmit={(e) => e.preventDefault()}
                 className="bg-neutral-700 flex justify-center items-center mt-[30vh] h-80">
 
-                {showBtns ? <fieldset className="flex items-center">
+                {userId ? <>
+                    <Link to={"/board"}
+                        className="border-2 border-neutral-800 p-3 hover:bg-gray-500">
+                        Board
+                    </Link>
+                </>
+                    :
+                    <>
+                        {showBtns ? <fieldset className="flex items-center">
 
-                    <button className="border-2 border-neutral-800 p-3 hover:bg-gray-500"
-                        onClick={() => { setIsRegisterForm(true); setShowBtns(false) }} >
-                        Register
-                    </button>
+                            <button className="border-2 border-neutral-800 p-3 hover:bg-gray-500"
+                                onClick={() => { setIsRegisterForm(true); setShowBtns(false) }} >
+                                Register
+                            </button>
 
-                    <hr className="text-white w-32 rotate-90" />
+                            <hr className="text-white w-32 rotate-90" />
 
-                    <button className="border-2 border-neutral-800 p-3 hover:bg-gray-500"
-                        onClick={() => { setIsLoginForm(true); setShowBtns(false) }}>
-                        Log in
-                    </button>
+                            <button className="border-2 border-neutral-800 p-3 hover:bg-gray-500"
+                                onClick={() => { setIsLoginForm(true); setShowBtns(false) }}>
+                                Log in
+                            </button>
 
-                </fieldset> : null}
+                        </fieldset> : null}
 
-                {isLoginForm ?
+                        {isLoginForm ?
 
-                    <AccountForm formType={"Log in"}
-                        setShowBtns={setShowBtns}
-                        setFormDisplay={setIsLoginForm} /> : null}
+                            <AccountForm formType={"Log in"}
+                                setShowBtns={setShowBtns}
+                                setFormDisplay={setIsLoginForm} /> : null}
 
-                {isRegisterForm ?
+                        {isRegisterForm ?
 
-                    <AccountForm formType={"Register"}
-                        setShowBtns={setShowBtns}
-                        setFormDisplay={setIsRegisterForm} /> : null}
+                            <AccountForm formType={"Register"}
+                                setShowBtns={setShowBtns}
+                                setFormDisplay={setIsRegisterForm} /> : null}
+                    </>
+                }
+
+
 
             </form>
         </>

@@ -3,6 +3,7 @@ import { setDoc, doc } from "firebase/firestore/lite";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
+import { BsArrowLeftSquareFill } from "react-icons/bs"
 
 const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
 
@@ -71,8 +72,6 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                     onChange={(e) => setPasswordInput(e.target.value)}
                 />
 
-
-
                 {formType === "Register" ?
                     <button onClick={handleRegister}>
                         {formType ? formType : "add a formType prop"}
@@ -82,7 +81,10 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                         {formType ? formType : "add a formType prop"}
                     </button>}
 
-                <button onClick={() => { setShowBtns(true); setFormDisplay(false) }}>Back</button>
+                <button onClick={() => { setShowBtns(true); setFormDisplay(false) }}>
+                    <BsArrowLeftSquareFill
+                        className="text-neutral-500 text-2xl hover:text-neutral-600" />
+                </button>
 
             </fieldset>
         </>

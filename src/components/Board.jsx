@@ -21,14 +21,6 @@ const Board = ({ userId, setUserId }) => {
 
     useEffect(() => {
 
-        const getLoggedInUser = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUserId(cu => user.uid)
-                console.log(`current userId: ${user.uid}`)
-            } else {
-                setUserId(null)
-            }
-        })
 
         if (userId !== null) {
             const colRef = doc(db, "notes", userId)
@@ -43,7 +35,6 @@ const Board = ({ userId, setUserId }) => {
                     console.log(err.message)
                 })
         }
-        return getLoggedInUser
     }, [userId])
 
 
