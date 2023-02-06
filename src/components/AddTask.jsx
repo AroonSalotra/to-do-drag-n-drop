@@ -18,10 +18,15 @@ const AddTask = ({ setData }) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        if (textInput.length > 1) {
-            setData(d => [...d, textInput])
-            setTextInput("")
-        }
+        if (textInput.length < 1) return
+
+        const getLetter = textInput.slice(0, 1).toUpperCase()
+        const result = getLetter + textInput.slice(1, textInput.length)
+        console.log(result)
+
+        setData(d => [...d, result])
+        setTextInput("")
+
     }
 
     return (
