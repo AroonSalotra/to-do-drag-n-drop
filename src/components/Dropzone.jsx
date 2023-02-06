@@ -1,8 +1,9 @@
 import { Droppable, Draggable } from "react-beautiful-dnd";
-import Options from "./Options";
+import AddTask from "./AddTask";
 import Task from "./Task";
 
 const Dropzone = ({ title, data, setData, id, dragIndex }) => {
+
     return (
         <>
             <Droppable droppableId={id}>
@@ -18,11 +19,11 @@ const Dropzone = ({ title, data, setData, id, dragIndex }) => {
                                 {title ? title : "TITLE"}
                             </h2>
 
-                            <Options setData={setData} />
+                            <AddTask setData={setData} />
 
                         </div>
 
-                        <div className="pt-8 bg-neutral-600 w-96 min-h-[30rem] max-h-fit">
+                        <div className="pt-8 bg-neutral-600 w-96 min-h-[30rem] max-h-fit border-b-2 border-gra">
 
                             {data ? <ul className="flex flex-col items-center gap-4">
 
@@ -38,7 +39,12 @@ const Dropzone = ({ title, data, setData, id, dragIndex }) => {
                                                 {...provided.dragHandleProps}
                                                 ref={provided.innerRef}>
 
-                                                <Task body={item} />
+                                                <Task
+                                                    body={item}
+                                                    index={index}
+                                                    data={data}
+                                                    setData={setData}
+                                                />
 
                                             </li>
                                         )}

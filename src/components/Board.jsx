@@ -119,7 +119,9 @@ const Board = ({ userId, setUserId }) => {
 
     return (
         <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center gap-8 pt-8">
+
             <DragDropContext onDragEnd={handleDragEnd}>
+
                 <Dropzone
                     title={"To-Do"}
                     data={tasks}
@@ -143,7 +145,8 @@ const Board = ({ userId, setUserId }) => {
 
             </DragDropContext>
 
-            <button onClick={handleClick}>
+            <button onClick={handleClick}
+                className="bg-gradient-to-r from-purple-600 to-pink-500 py-2 px-4 rounded-full">
                 Sync
             </button>
 

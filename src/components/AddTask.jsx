@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useState, useRef } from "react"
 import { BsThreeDots, BsPlusLg } from "react-icons/bs"
 
-const Options = ({ setData }) => {
+const AddTask = ({ setData }) => {
 
     const [isInputActive, setIsInputActive] = useState(false)
     const [textInput, setTextInput] = useState("")
@@ -49,4 +49,4 @@ const Options = ({ setData }) => {
     );
 }
 
-export default Options;
+export default AddTask;

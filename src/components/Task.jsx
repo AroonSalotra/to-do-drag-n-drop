@@ -1,26 +1,55 @@
-import { useState } from "react";
-import { AiOutlineInfoCircle } from "react-icons/ai"
+import { useEffect, useState } from "react";
+import { AiFillDelete } from "react-icons/ai"
+import { BiDotsVertical } from "react-icons/bi"
+import { ImCross } from "react-icons/im"
 
-const Task = ({ body }) => {
+const Task = ({ body, index, data, setData }) => {
 
-    const [isTagVisible, setIsTagVisible] = useState(false)
-    const [customBg, setCustomBg] = useState("bg-neutral-700")
+    const [isMenuActive, setIsMenuActive] = useState(false)
+
+    useEffect(() => {
+
+        if (isMenuActive === false) return;
+
+        const handleEvent = (e) => {
+            e.target.type !== "submit" ?
+                setIsMenuActive(false) : null
+        }
+
+        window.addEventListener("click", handleEvent)
+
+        return () => window.removeEventListener("click", handleEvent)
+
+    }, [isMenuActive])
+
+    const handleClick = () => {
+        // const [getItem] = currentSource.splice(source.index, 1)
+        const dataClone = [...data]
+
+        const [getItem] = dataClone.splice(index, 1)
+        setData(d => dataClone)
+        // console.log(dataClone)
+    }
 
     return (
         <>
-            <div className={`${customBg} p-2 py-4`}>
-
-                {isTagVisible ? <p className="text-sm bg-neutral-600 w-fit p-1 px-2">
-                    Urgent
-                </p>
-                    : null}
+            <div className={`p-2 flex justify-between shadow-sm shadow-gray-900`}>
 
                 <p className="max-h-24 overflow-auto">{body}</p>
 
+                {isMenuActive ?
+                    <>
+                        <button onClick={handleClick}>
+                            <AiFillDelete className="text-2xl" />
+                        </button>
+                    </>
+                    :
+                    null}
 
-                <button onClick={() => setIsTagVisible(!isTagVisible)}
-                    className="text-sm uppercase">
-                    <AiOutlineInfoCircle className="text-lg" />
+                <button className="text-sm uppercase"
+                    type="task"
+                    onClick={() => setIsMenuActive(m => !isMenuActive)}>
+                    <BiDotsVertical className="text-3xl select-none pointer-events-none" />
                 </button>
 
             </div>
