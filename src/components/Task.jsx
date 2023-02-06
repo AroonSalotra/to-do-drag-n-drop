@@ -23,33 +23,32 @@ const Task = ({ body, index, data, setData }) => {
     }, [isMenuActive])
 
     const handleClick = () => {
-        // const [getItem] = currentSource.splice(source.index, 1)
         const dataClone = [...data]
-
         const [getItem] = dataClone.splice(index, 1)
+
         setData(d => dataClone)
-        // console.log(dataClone)
     }
 
     return (
         <>
-            <div className={`p-2 flex justify-between shadow-sm shadow-gray-900`}>
+            <div className="p-2 shadow-sm shadow-gray-900 grid grid-cols-6 items-center">
 
-                <p className="max-h-24 overflow-auto">{body}</p>
+                <p className="max-h-24 overflow-auto col-span-4">{body}</p>
 
                 {isMenuActive ?
                     <>
-                        <button onClick={handleClick}>
+                        <button className="col-start-5 pl-4"
+                            onClick={handleClick}>
                             <AiFillDelete className="text-2xl" />
                         </button>
                     </>
                     :
                     null}
 
-                <button className="text-sm uppercase"
+                <button className="text-sm uppercase col-start-6 pl-4"
                     type="task"
                     onClick={() => setIsMenuActive(m => !isMenuActive)}>
-                    <BiDotsVertical className="text-3xl select-none pointer-events-none" />
+                    <BiDotsVertical className={`text-3xl select-none pointer-events-none transition-all ${isMenuActive ? "rotate-90" : ""}`} />
                 </button>
 
             </div>
