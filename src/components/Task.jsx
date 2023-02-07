@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AiFillDelete } from "react-icons/ai"
+import { AiFillDelete, AiFillBook } from "react-icons/ai"
 import { BiDotsVertical } from "react-icons/bi"
 import { ImCross } from "react-icons/im"
 
@@ -31,21 +31,25 @@ const Task = ({ body, index, data, setData }) => {
 
     return (
         <>
-            <div className="p-2 shadow-sm shadow-gray-900 grid grid-cols-6 items-center">
+            <div className="p-2 shadow-sm shadow-gray-900 grid grid-cols-8">
 
-                <p className="max-h-24 overflow-auto col-span-4">{body}</p>
+                <p className={`break-all max-h-20 overflow-y-auto col-span-${isMenuActive ? "5" : "8"}`}>{body}</p>
 
                 {isMenuActive ?
                     <>
-                        <button className="col-start-5 pl-4"
+                        <button className="col-start-7 row-start-1 pl-4"
                             onClick={handleClick}>
                             <AiFillDelete className="text-2xl" />
+                        </button>
+
+                        <button className="col-start-6 pl-4">
+                            <AiFillBook className="text-2xl" />
                         </button>
                     </>
                     :
                     null}
 
-                <button className="text-sm uppercase col-start-6 pl-4"
+                <button className="text-sm uppercase col-start-8 pl-4"
                     type="task"
                     onClick={() => setIsMenuActive(m => !isMenuActive)}>
                     <BiDotsVertical className={`text-3xl select-none pointer-events-none transition-all ${isMenuActive ? "rotate-90" : ""}`} />
