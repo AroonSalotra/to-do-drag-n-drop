@@ -8,6 +8,7 @@ import { auth, db } from "./firebase-config"
 import Header from './components/Header'
 import AccountForm from './components/AccountForm'
 import ViewBoard from './components/ViewBoard'
+import Navbar from './components/Navbar'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
 
       <BrowserRouter>
 
+        <Navbar />
         <Header />
 
         <Routes>
