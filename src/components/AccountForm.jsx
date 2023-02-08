@@ -37,12 +37,9 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
             .then((cred) => {
                 setEmailInput(email => "")
                 setPasswordInput(password => "")
-                // console.log(cred.user.uid)
-                // setUserId(id => cred.user.uid)
-
             })
             .then(() => {
-                navigate("/board")
+                navigate("/view-boards")
             })
             .catch((err) => {
                 console.log(err.message)

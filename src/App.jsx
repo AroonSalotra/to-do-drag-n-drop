@@ -7,6 +7,7 @@ import { onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "fir
 import { auth, db } from "./firebase-config"
 import Header from './components/Header'
 import AccountForm from './components/AccountForm'
+import ViewBoard from './components/ViewBoard'
 
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
           <Route path='/' element={<RegisterForm userId={userId} setUserId={setUserId} />} />
 
           <Route path='/board' element={<Board userId={userId} setUserId={setUserId} />} />
+
+          <Route path='/view-boards' element={<ViewBoard />} />
 
         </Routes>
 
