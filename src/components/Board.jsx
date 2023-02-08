@@ -11,6 +11,7 @@ import {
     setDoc
 } from "firebase/firestore/lite"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Board = ({ userId, setUserId }) => {
 
@@ -21,12 +22,10 @@ const Board = ({ userId, setUserId }) => {
 
     useEffect(() => {
 
-
         if (userId !== null) {
             const colRef = doc(db, "notes", userId)
             const getCollection = getDoc(colRef)
                 .then((snap) => {
-                    // console.log(snap.data())
                     setTasks(t => snap.data().todo)
                     setCompleted(c => snap.data().completed)
                     setProgress(p => snap.data().progress)
@@ -35,6 +34,7 @@ const Board = ({ userId, setUserId }) => {
                     console.log(err.message)
                 })
         }
+
     }, [userId])
 
 
@@ -119,6 +119,17 @@ const Board = ({ userId, setUserId }) => {
 
     return (
         <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-8 pt-8">
+
+            <div className="absolute bg-neutral-900/[0.7] top-[4vh] sm:top-[3vh] bottom-0 w-screen z-10">
+
+                <p className="mt-[40vh] mb-4">Login or register to use boards</p>
+
+                <Link to={"/"}
+                    className="bg-gradient-to-r from-purple-600 to-pink-500 py-2 px-4 rounded-full">
+                    Back to home
+                </Link>
+
+            </div>
 
             <DragDropContext onDragEnd={handleDragEnd}>
 

@@ -13,7 +13,7 @@ const Navbar = () => {
     ]
 
     return (
-        <nav className="absolute top-0 w-2/6 z-10 sm:contents">
+        <nav className="absolute top-0 w-2/6 z-20 sm:contents">
 
             <button onClick={() => setIsMobileNav(!isMobileNav)}
                 className="absolute left-0 text-3xl block sm:hidden">
