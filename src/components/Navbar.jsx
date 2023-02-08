@@ -24,7 +24,7 @@ const Navbar = () => {
             ${isMobileNav ? "" : "-translate-x-full"} sm:flex-row sm:translate-x-0 sm:pt-0`}>
 
                 {navList.map(({ body, redirect }) => {
-                    return <Link
+                    return <Link onClick={() => setIsMobileNav(false)}
                         className="text-lg font-semibold p-3 sm:p-0 w-full"
                         key={body}
                         to={redirect}>
