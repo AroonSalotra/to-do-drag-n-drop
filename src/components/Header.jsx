@@ -32,10 +32,9 @@ const Header = () => {
     }
 
     return (
-        <header>
-            <h2 className="cursor-pointer border-x-2 border-gra w-fit p-2 absolute right-0 top-0"
+        <header className="mb-10">
+            <h2 className="cursor-pointer bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg p-1 w-fit absolute right-5 top-2 sm:top-8 text-lg"
                 onClick={handleLogOut}>
-                {/* {currentUser} */}
                 Sign out
             </h2>
         </header>
