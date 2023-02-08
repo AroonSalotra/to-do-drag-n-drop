@@ -39,7 +39,7 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                 setPasswordInput(password => "")
             })
             .then(() => {
-                navigate("/view-boards")
+                // navigate("/view-boards")
             })
             .catch((err) => {
                 console.log(err.message)

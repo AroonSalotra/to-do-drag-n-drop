@@ -9,6 +9,7 @@ import {
     onAuthStateChanged
 } from "firebase/auth"
 import AccountForm from "./AccountForm";
+import ViewBoard from "./ViewBoard";
 
 const RegisterForm = ({ userId, setUserId }) => {
 
@@ -22,13 +23,14 @@ const RegisterForm = ({ userId, setUserId }) => {
             <form action=""
                 onSubmit={(e) => e.preventDefault()}
                 id="login-form"
-                className="bg-neutral-700 flex justify-center items-center mt-[30vh] h-80">
+                className="bg-neutral-70 flex justify-center items-center mt-[30vh] h-80">
 
                 {userId ? <>
-                    <Link to={"/board"}
+                    {/* <Link to={"/board"}
                         className="border-2 border-neutral-800 p-3 hover:bg-gray-500">
                         Board
-                    </Link>
+                    </Link> */}
+                    <ViewBoard />
                 </>
                     :
                     <>

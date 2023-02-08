@@ -4,9 +4,9 @@ import SelectBoard from "./SelectBoard";
 const ViewBoard = () => {
     return (
         <>
-            <h1>Your boards</h1>
+            {/* <h1>Your boards</h1> */}
 
-            <div className="flex gap-8 justify-center">
+            <div className="flex gap-8 justify-center flex-wrap">
 
                 <SelectBoard
                     redirect={"/board"}
