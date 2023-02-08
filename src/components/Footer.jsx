@@ -20,7 +20,7 @@ const Footer = () => {
     }, [currentUser])
 
     return (
-        <footer className="bg-neutral-900 sm:fixed bottom-0 left-0 w-screen">
+        <footer className="bg-neutral-900 md:fixed bottom-0 left-0 w-screen">
 
             <p>Logged in as: {currentUser}</p>
 

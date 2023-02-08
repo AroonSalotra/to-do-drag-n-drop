@@ -118,7 +118,7 @@ const Board = ({ userId, setUserId }) => {
     }
 
     return (
-        <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center gap-8 pt-8">
+        <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-8 pt-8">
 
             <DragDropContext onDragEnd={handleDragEnd}>
 

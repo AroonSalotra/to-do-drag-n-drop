@@ -33,7 +33,7 @@ const Task = ({ body, index, data, setData }) => {
         <>
             <div className="p-2 shadow-sm shadow-gray-900 grid grid-cols-8">
 
-                <p className={`break-all max-h-20 overflow-y-auto ${isMenuActive ? "col-span-5" : "col-span-8"}`}>
+                <p className={`break-all overflow-y-auto ${isMenuActive ? "col-span-5" : "col-span-8"}`}>
                     {body}</p>
 
                 {isMenuActive ?

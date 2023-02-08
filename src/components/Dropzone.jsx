@@ -23,7 +23,7 @@ const Dropzone = ({ title, data, setData, id, dragIndex }) => {
 
                         </div>
 
-                        <div className="pt-8 bg-neutral-600 w-96 min-h-[30rem] max-h-fit border-b-2 border-gra">
+                        <div className="pt-8 bg-neutral-600 w-screen sm:w-96 min-h-[20rem] max-h-fit border-b-2 border-gra">
 
                             {data ? <ul className="flex flex-col items-center gap-4">
 
@@ -34,7 +34,7 @@ const Dropzone = ({ title, data, setData, id, dragIndex }) => {
 
                                         {(provided) => (
 
-                                            <li className="w-80 pointer bg-neutral-700 text-left"
+                                            <li className="w-screen sm:w-80 pointer bg-neutral-700 text-left"
                                                 {...provided.draggableProps}
                                                 {...provided.dragHandleProps}
                                                 ref={provided.innerRef}>
