@@ -22,7 +22,10 @@ const Footer = () => {
     return (
         <footer className="bg-neutral-900 md:fixed bottom-0 left-0 w-screen">
 
-            <p>Logged in as: {currentUser}</p>
+
+
+            {currentUser ? <p>Logged in as: {currentUser}</p>
+                : null}
 
             <div className="flex flex-col sm:flex-row items-center justify-between pt-4 pl-8">
 
