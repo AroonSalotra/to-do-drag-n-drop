@@ -9,6 +9,7 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
 
     const [emailInput, setEmailInput] = useState("")
     const [passwordInput, setPasswordInput] = useState("")
+    const [showError, setShowError] = useState(null)
     const navigate = useNavigate()
 
     const handleRegister = () => {
@@ -27,8 +28,8 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                     });
             })
             .catch((error) => {
-                console.log(error.code + error.message)
-                setShowError(e => error.message)
+                console.log(error.message)
+                setShowError(error.message)
             })
     }
 
@@ -41,10 +42,12 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
             .then(() => {
                 // navigate("/view-boards")
             })
-            .catch((err) => {
-                console.log(err.message)
+            .catch((error) => {
+                console.log(error.message)
+                setShowError(error.message)
             })
     }
+
 
 
     return (
@@ -69,6 +72,10 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                     onChange={(e) => setPasswordInput(e.target.value)}
                 />
 
+                <p>
+                    {showError}
+                </p>
+
                 {formType === "Register" ?
                     <button onClick={handleRegister}
                         className="bg-gradient-to-r from-purple-600 to-pink-500 w-fit px-4 mx-auto rounded-xl"
@@ -86,6 +93,7 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                     <BsArrowLeftSquareFill
                         className="text-neutral-500 text-2xl hover:text-neutral-600" />
                 </button>
+
 
             </fieldset>
         </>

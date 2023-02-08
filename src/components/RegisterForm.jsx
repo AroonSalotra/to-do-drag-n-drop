@@ -25,13 +25,7 @@ const RegisterForm = ({ userId, setUserId }) => {
                 id="login-form"
                 className="bg-neutral-70 flex justify-center items-center my-8 sm:mt-[30vh] h-full">
 
-                {userId ? <>
-                    {/* <Link to={"/board"}
-                        className="border-2 border-neutral-800 p-3 hover:bg-gray-500">
-                        Board
-                    </Link> */}
-                    <ViewBoard />
-                </>
+                {userId ? <ViewBoard />
                     :
                     <>
                         {showBtns ? <fieldset className="flex items-center">

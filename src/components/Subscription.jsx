@@ -10,6 +10,10 @@ const Subscription = () => {
 
             <PricingTable />
 
+            <small className="italic">
+                *Proof of concept, no purchase will be made
+            </small>
+
         </section>
     );
 }

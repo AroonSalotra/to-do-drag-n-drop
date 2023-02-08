@@ -25,7 +25,7 @@ const Navbar = () => {
 
                 {navList.map(({ body, redirect }) => {
                     return <Link onClick={() => setIsMobileNav(false)}
-                        className="text-lg font-semibold p-3 sm:p-0 w-full"
+                        className="text-xl font-semibold p-3 sm:p-0 w-full border-gra hover:border-b-2"
                         key={body}
                         to={redirect}>
                         {body}
