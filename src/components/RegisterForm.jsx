@@ -23,7 +23,7 @@ const RegisterForm = ({ userId, setUserId }) => {
             <form action=""
                 onSubmit={(e) => e.preventDefault()}
                 id="login-form"
-                className="bg-neutral-70 flex justify-center items-center mt-[30vh] h-80">
+                className="bg-neutral-70 flex justify-center items-center mt-[30vh] h-full">
 
                 {userId ? <>
                     {/* <Link to={"/board"}

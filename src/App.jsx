@@ -9,6 +9,7 @@ import Header from './components/Header'
 import AccountForm from './components/AccountForm'
 import ViewBoard from './components/ViewBoard'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
           <Route path='/view-boards' element={<ViewBoard />} />
 
         </Routes>
+
+        <Footer />
 
       </BrowserRouter>
 

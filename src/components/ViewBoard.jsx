@@ -15,12 +15,12 @@ const ViewBoard = () => {
                 />
 
                 <SelectBoard
-                    redirect={"/board"}
+                    redirect={"/pro"}
                     title="Board two"
                 />
 
                 <SelectBoard
-                    redirect={"/board"}
+                    redirect={"/pro"}
                     title="Board three"
                 />
 
