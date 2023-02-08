@@ -10,6 +10,7 @@ import AccountForm from './components/AccountForm'
 import ViewBoard from './components/ViewBoard'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Subscription from './components/Subscription'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
       <BrowserRouter>
 
         <Navbar />
+
         <Header />
 
         <Routes>
@@ -44,6 +46,8 @@ function App() {
           <Route path='/board' element={<Board userId={userId} setUserId={setUserId} />} />
 
           <Route path='/view-boards' element={<ViewBoard />} />
+
+          <Route path='/pro' element={<Subscription />} />
 
         </Routes>
 
