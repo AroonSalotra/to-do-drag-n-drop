@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi"
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -24,12 +25,16 @@ const Navbar = () => {
             ${isMobileNav ? "" : "-translate-x-full"} sm:flex-row sm:translate-x-0 sm:pt-0`}>
 
                 {navList.map(({ body, redirect }) => {
-                    return <Link onClick={() => setIsMobileNav(false)}
-                        className="text-xl font-semibold p-3 sm:p-0 w-full border-gra hover:border-b-2"
+                    return <NavLink
+                        onClick={() => setIsMobileNav(false)}
+                        className={`text-xl font-semibold p-3 sm:p-0 w-full border-gra hover:border-b-2`}
+                        style={({ isActive }) => ({
+                            borderBottom: isActive ? "1px solid" : ""
+                        })}
                         key={body}
                         to={redirect}>
                         {body}
-                    </Link>
+                    </NavLink>
                 })}
 
             </div>
