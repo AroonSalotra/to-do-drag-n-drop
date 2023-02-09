@@ -12,12 +12,14 @@ import {
 } from "firebase/firestore/lite"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 const Board = ({ userId, setUserId }) => {
 
     const [completed, setCompleted] = useState([])
     const [progress, setProgress] = useState([])
     const [tasks, setTasks] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -37,6 +39,16 @@ const Board = ({ userId, setUserId }) => {
 
     }, [userId])
 
+    useEffect(() => {
+        if (isLoading !== true) return
+
+        const timer = setTimeout(() => {
+            setIsLoading(false)
+        }, 1000)
+
+        return () => clearTimeout(timer)
+
+    }, [isLoading])
 
     const handleDragEnd = (result) => {
 
@@ -110,6 +122,7 @@ const Board = ({ userId, setUserId }) => {
         })
             .then(() => {
                 console.log("synced data")
+                setIsLoading(true)
             })
             .catch((err) => {
                 console.log(err.message)
@@ -118,8 +131,6 @@ const Board = ({ userId, setUserId }) => {
     }
 
     return (
-
-
 
         <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-8 pt-8">
 
@@ -159,10 +170,14 @@ const Board = ({ userId, setUserId }) => {
 
             </DragDropContext>
 
+
             <button onClick={handleClick}
-                className="bg-gradient-to-r from-purple-600 to-pink-500 py-2 px-4 rounded-full">
+                className="bg-gradient-to-r from-purple-600 to-pink-500 py-2 px-4 rounded-full active:scale-105">
                 Sync
             </button>
+            {isLoading ? <AiOutlineLoading3Quarters className="animate-spin text-2xl" /> : null}
+
+
 
         </div>
     );
