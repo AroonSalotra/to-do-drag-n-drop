@@ -25,33 +25,29 @@ const Footer = () => {
             {currentUser ? <p>Logged in as: {currentUser}</p>
                 : null}
 
-            <div className="flex flex-col sm:flex-row items-center justify-between pt-4 pl-8">
 
-                <ul className="flex sm:flex-row sm:gap-20">
+            <ul className="flex sm:flex-row sm:gap-20 gap-8 justify-center pt-3">
 
-                    <li>
-                        <a href="https://www.aroonsalotra.com/" target={"_blank"}>
-                            <AiFillContainer className="text-2xl" />
-                        </a>
-                    </li>
+                <li>
+                    <a href="https://www.aroonsalotra.com/" target={"_blank"}>
+                        <AiFillContainer className="text-4xl sm:text-2xl" />
+                    </a>
+                </li>
 
-                    <li>
-                        <a href="https://github.com/AroonSalotra" target={"_blank"}>
-                            <AiFillGithub className="text-2xl" />
-                        </a>
-                    </li>
+                <li>
+                    <a href="https://github.com/AroonSalotra" target={"_blank"}>
+                        <AiFillGithub className="text-4xl sm:text-2xl" />
+                    </a>
+                </li>
 
-                    <li>
-                        <a href="https://www.linkedin.com/in/aroon-salotra-0aa5b6209/" target={"_blank"}>
-                            <AiFillLinkedin className="text-2xl" />
-                        </a>
-                    </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/aroon-salotra-0aa5b6209/" target={"_blank"}>
+                        <AiFillLinkedin className="text-4xl sm:text-2xl" />
+                    </a>
+                </li>
 
-                </ul>
+            </ul>
 
-                <small className="italic">This is a mock website for demonstrating my programming ability</small>
-
-            </div>
         </footer>
     );
 }
