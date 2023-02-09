@@ -6,7 +6,7 @@ const ViewBoard = () => {
         <>
             {/* <h1>Your boards</h1> */}
 
-            <div className="flex sm:pt-40 gap-8 justify-center flex-wrap">
+            <div className="flex gap-8 justify-center flex-wrap">
 
                 <SelectBoard
                     redirect={"/board"}
