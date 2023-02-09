@@ -35,15 +35,14 @@ const AddTask = ({ setData }) => {
                 className=""
                 onSubmit={handleFormSubmit}>
 
-                <input className={`${isInputActive ? "" : "hide"} absolute -translate-x-[22.1rem] translate-y-12 w-96 px-4 p-2`}
+                <input className={`${isInputActive ? "" : "hide"} absolute sm:-translate-x-[22.1rem] translate-y-12 left-0 sm:left-auto w-full sm:w-96 px-4 p-2`}
                     value={textInput}
                     onChange={handleTextChange}
                     type="text"
                     ref={textRef}
                 />
 
-                <button
-                    onClick={handleButtonClick}>
+                <button onClick={handleButtonClick}>
 
                     <BsPlusLg className={`${isInputActive ? "rotate-45" : "rotate-0"} text-3xl transition-all`} />
 
