@@ -22,7 +22,9 @@ const Footer = () => {
     return (
         <footer className="bg-neutral-900 sm:fixed bottom-0 left-0 w-screen pb-2 mt-20">
 
-            {currentUser ? <p>Logged in as: {currentUser}</p>
+            {currentUser ? <p className="text-neutral-400">Logged in as:
+                <span className="text-white"> {currentUser}</span>
+            </p>
                 : null}
 
 
@@ -30,19 +32,19 @@ const Footer = () => {
 
                 <li>
                     <a href="https://www.aroonsalotra.com/" target={"_blank"}>
-                        <AiFillContainer className="text-4xl sm:text-2xl" />
+                        <AiFillContainer className="text-4xl sm:text-2xl sm:hover:text-neutral-400" />
                     </a>
                 </li>
 
                 <li>
                     <a href="https://github.com/AroonSalotra" target={"_blank"}>
-                        <AiFillGithub className="text-4xl sm:text-2xl" />
+                        <AiFillGithub className="text-4xl sm:text-2xl sm:hover:text-neutral-400" />
                     </a>
                 </li>
 
                 <li>
                     <a href="https://www.linkedin.com/in/aroon-salotra-0aa5b6209/" target={"_blank"}>
-                        <AiFillLinkedin className="text-4xl sm:text-2xl" />
+                        <AiFillLinkedin className="text-4xl sm:text-2xl sm:hover:text-neutral-400" />
                     </a>
                 </li>
 
