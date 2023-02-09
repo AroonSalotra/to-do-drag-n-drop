@@ -13,6 +13,7 @@ import {
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
+import Modal from "./Modal"
 
 const Board = ({ userId, setUserId }) => {
 
@@ -134,16 +135,8 @@ const Board = ({ userId, setUserId }) => {
 
         <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-8 pt-8">
 
-            {userId ? null : <div className="absolute bg-neutral-900/[0.7] z-10 left-0 top-8 bottom-12 w-screen h-[116rem] sm:h-screen">
-
-                <p className="mt-[40vh] mb-4">Login or register to use boards</p>
-
-                <Link to={"/"}
-                    className="bg-gradient-to-r from-purple-600 to-pink-500 py-2 px-4 rounded-full">
-                    Back to home
-                </Link>
-
-            </div>}
+            {/* Show modal if user is not logged in */}
+            {userId ? null : <Modal />}
 
             <DragDropContext onDragEnd={handleDragEnd}>
 
