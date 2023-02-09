@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { AiFillDelete, AiFillBook } from "react-icons/ai"
 import { BiDotsVertical } from "react-icons/bi"
-import { ImCross } from "react-icons/im"
 
 const Task = ({ body, index, data, setData }) => {
 

@@ -39,9 +39,6 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                 setEmailInput(email => "")
                 setPasswordInput(password => "")
             })
-            .then(() => {
-                // navigate("/view-boards")
-            })
             .catch((error) => {
                 console.log(error.message)
                 setShowError(error.message)

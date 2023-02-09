@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Board from './components/Board'
 import RegisterForm from './components/RegisterForm'
-import { onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "firebase/auth"
-import { auth, db } from "./firebase-config"
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "./firebase-config"
 import Header from './components/Header'
-import AccountForm from './components/AccountForm'
 import ViewBoard from './components/ViewBoard'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AiFillLock, AiFillUnlock } from "react-icons/ai"
+import { AiFillLock } from "react-icons/ai"
 
 const SelectBoard = ({ redirect, title, access }) => {
     return (

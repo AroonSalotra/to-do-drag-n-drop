@@ -1,27 +1,22 @@
 import { useEffect, useState } from "react"
 import Dropzone from "./Dropzone"
 import { DragDropContext } from 'react-beautiful-dnd'
-import { onAuthStateChanged } from "firebase/auth"
-import { auth, db } from "../firebase-config"
+import { db } from "../firebase-config"
 import {
-    collection,
-    getDocs,
     getDoc,
     doc,
     setDoc
 } from "firebase/firestore/lite"
 import { useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import Modal from "./Modal"
 
-const Board = ({ userId, setUserId }) => {
+const Board = ({ userId }) => {
 
     const [completed, setCompleted] = useState([])
     const [progress, setProgress] = useState([])
     const [tasks, setTasks] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
-    const navigate = useNavigate()
 
     useEffect(() => {
 

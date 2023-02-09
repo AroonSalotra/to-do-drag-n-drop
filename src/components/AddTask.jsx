@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useState, useRef } from "react"
-import { BsThreeDots, BsPlusLg } from "react-icons/bs"
+import { BsPlusLg } from "react-icons/bs"
 
 const AddTask = ({ setData }) => {
 
