@@ -16,7 +16,7 @@ const Navbar = () => {
         <nav className="absolute left-0 top-0 w-4/6 sm:w-screen z-20">
 
             <button onClick={() => setIsMobileNav(!isMobileNav)}
-                className="absolute left-0 text-3xl block sm:hidden">
+                className="absolute left-2 top-1 text-4xl block sm:hidden">
                 <GiHamburgerMenu className="select-none pointer-events-none" />
             </button>
 

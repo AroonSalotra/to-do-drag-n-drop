@@ -34,7 +34,7 @@ const Header = () => {
     return (
         <header className="mb-20">
 
-            {currentUser ? <h2 className="cursor-pointer bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg p-1 w-fit absolute right-5 top-2 sm:top-8 text-lg"
+            {currentUser ? <h2 className="cursor-pointer bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg p-1 w-fit absolute right-5 top-2 sm:top-12 text-lg"
                 onClick={handleLogOut}>
                 Sign out
             </h2>
