@@ -52,7 +52,7 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
 
     return (
         <>
-            <fieldset className="flex flex-col gap-2 mt-[10vh] w-full m-auto sm:w-96">
+            <fieldset className="flex flex-col gap-2 w-full m-auto sm:w-96">
 
                 <input type="email"
                     name="useremail"
@@ -78,13 +78,13 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
 
                 {formType === "Register" ?
                     <button onClick={handleRegister}
-                        className="bg-gradient-to-r from-purple-600 to-pink-500 w-fit px-4 mx-auto rounded-xl"
+                        className="bg-gradient-to-r from-purple-600 to-pink-500 w-fit px-4 mx-auto rounded-xl hover:scale-105 active:scale-95"
                     >
                         {formType ? formType : "add a formType prop"}
                     </button>
                     :
                     <button onClick={handleLogIn}
-                        className="bg-gradient-to-r from-purple-600 to-pink-500 w-fit px-4 mx-auto rounded-xl"
+                        className="bg-gradient-to-r from-purple-600 to-pink-500 w-fit px-4 mx-auto rounded-xl hover:scale-105 active:scale-95"
                     >
                         {formType ? formType : "add a formType prop"}
                     </button>}
