@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi"
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -14,7 +13,7 @@ const Navbar = () => {
     ]
 
     return (
-        <nav className="absolute top-0 w-2/6 z-20 sm:contents">
+        <nav className="absolute left-0 top-0 w-4/6 sm:w-screen z-20">
 
             <button onClick={() => setIsMobileNav(!isMobileNav)}
                 className="absolute left-0 text-3xl block sm:hidden">
