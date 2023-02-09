@@ -23,7 +23,7 @@ const RegisterForm = ({ userId, setUserId }) => {
             <form action=""
                 onSubmit={(e) => e.preventDefault()}
                 id="login-form"
-                className="bg-neutral-70 flex justify-center items-center my-8 h-96">
+                className="bg-neutral-70 flex justify-center items-center my-8">
 
                 {userId ? <ViewBoard />
                     :
