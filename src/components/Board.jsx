@@ -118,9 +118,12 @@ const Board = ({ userId, setUserId }) => {
     }
 
     return (
+
+
+
         <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-8 pt-8">
 
-            <div className="absolute bg-neutral-900/[0.7] top-[4vh] sm:top-[3vh] bottom-0 w-screen z-10">
+            {userId ? null : <div className="absolute bg-neutral-900/[0.7] z-10 left-0 top-7 bottom-12 w-screen">
 
                 <p className="mt-[40vh] mb-4">Login or register to use boards</p>
 
@@ -129,7 +132,7 @@ const Board = ({ userId, setUserId }) => {
                     Back to home
                 </Link>
 
-            </div>
+            </div>}
 
             <DragDropContext onDragEnd={handleDragEnd}>
 
