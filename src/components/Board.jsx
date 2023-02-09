@@ -128,7 +128,7 @@ const Board = ({ userId }) => {
 
     return (
 
-        <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-8 pt-8">
+        <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-8 pt-8 animate-fade">
 
             {/* Show modal if user is not logged in */}
             {userId ? null : <Modal />}
