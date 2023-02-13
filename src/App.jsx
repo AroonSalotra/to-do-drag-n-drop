@@ -2,11 +2,10 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Board from './components/Board'
-import RegisterForm from './components/RegisterForm'
+import Home from './components/Home'
 import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "./firebase-config"
 import Header from './components/Header'
-import ViewBoard from './components/ViewBoard'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Subscription from './components/Subscription'
@@ -39,7 +38,7 @@ function App() {
 
       <Routes>
 
-        <Route path='/' element={<RegisterForm userId={userId} setUserId={setUserId} />} />
+        <Route path='/' element={<Home userId={userId} setUserId={setUserId} />} />
 
         <Route path='/board' element={<Board userId={userId} setUserId={setUserId} />} />
 

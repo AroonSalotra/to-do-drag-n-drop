@@ -2,7 +2,7 @@ import { useState } from "react";
 import AccountForm from "./AccountForm";
 import ViewBoard from "./ViewBoard";
 
-const RegisterForm = ({ userId }) => {
+const Home = ({ userId }) => {
 
     const [isLoginForm, setIsLoginForm] = useState(false)
     const [isRegisterForm, setIsRegisterForm] = useState(false)
@@ -51,4 +51,4 @@ const RegisterForm = ({ userId }) => {
     );
 }
 
-export default RegisterForm;
+export default Home;
