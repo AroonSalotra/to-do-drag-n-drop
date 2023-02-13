@@ -30,31 +30,26 @@ function App() {
   }, [userId])
 
   return (
-    <>
 
-      <BrowserRouter>
+    <BrowserRouter>
 
-        <Navbar />
+      <Navbar />
 
-        <Header />
+      <Header />
 
-        <Routes>
+      <Routes>
 
-          <Route path='/' element={<RegisterForm userId={userId} setUserId={setUserId} />} />
+        <Route path='/' element={<RegisterForm userId={userId} setUserId={setUserId} />} />
 
-          <Route path='/board' element={<Board userId={userId} setUserId={setUserId} />} />
+        <Route path='/board' element={<Board userId={userId} setUserId={setUserId} />} />
 
-          <Route path='/view-boards' element={<ViewBoard />} />
+        <Route path='/pro' element={<Subscription />} />
 
-          <Route path='/pro' element={<Subscription />} />
+      </Routes>
 
-        </Routes>
+      <Footer />
 
-        <Footer />
-
-      </BrowserRouter>
-
-    </>
+    </BrowserRouter>
 
   )
 }

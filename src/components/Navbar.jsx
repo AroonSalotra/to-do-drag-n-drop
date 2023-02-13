@@ -26,7 +26,7 @@ const Navbar = () => {
                 {navList.map(({ body, redirect }) => {
                     return <NavLink
                         onClick={() => setIsMobileNav(false)}
-                        className={`text-xl font-semibold p-3 sm:p-0 w-full border-gra hover:border-b-2`}
+                        className={`text-xl font-semibold p-3 sm:p-2 w-full border-gra hover:!border-b-2`}
                         style={({ isActive }) => ({
                             borderBottom: isActive ? "1px solid" : ""
                         })}
