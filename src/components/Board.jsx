@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Dropzone from "./Dropzone"
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { DragDropContext } from 'react-beautiful-dnd'
 import { db } from "../firebase-config"
 import {
@@ -7,8 +8,6 @@ import {
     doc,
     setDoc
 } from "firebase/firestore/lite"
-import { useNavigate } from "react-router-dom"
-import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import Modal from "./Modal"
 
 const Board = ({ userId }) => {
