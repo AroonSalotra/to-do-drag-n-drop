@@ -12,9 +12,13 @@ const Home = ({ userId }) => {
 
     useEffect(() => {
 
-        if (userId !== null) setIsLoaded(true)
+        const timer = setTimeout(() => {
+            setIsLoaded(true)
+        }, 250)
 
-    }, [userId])
+        return () => clearTimeout(timer)
+
+    }, [])
 
     return (
 
