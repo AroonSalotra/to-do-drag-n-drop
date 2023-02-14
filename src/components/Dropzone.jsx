@@ -22,7 +22,7 @@ const Dropzone = ({ title, data, setData, id }) => {
 
                     </div>
 
-                    <div className="pt-8 bg-neutral-600 w-screen sm:w-96 h-[20rem] overflow-auto max-h-fit pb-4 border-b-2 border-gra">
+                    <div className="pt-8 bg-neutral-600 w-screen sm:w-96 h-[30rem] overflow-auto max-h-fit pb-4 border-b-2 border-gra">
 
                         {data ? <ul className="flex flex-col items-center gap-4">
 
