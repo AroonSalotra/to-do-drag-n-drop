@@ -32,7 +32,7 @@ const Task = ({ body, index, data, setData }) => {
         <>
             <div className="p-2 shadow-sm shadow-gray-900 grid grid-cols-8">
 
-                <p className={`break-all overflow-y-auto ${isMenuActive ? "col-span-5" : "col-span-8"}`}>
+                <p className={`break-all overflow-y-auto max-h-24 ${isMenuActive ? "col-span-5" : "col-span-7"}`}>
                     {body}</p>
 
                 {isMenuActive ?
@@ -49,7 +49,7 @@ const Task = ({ body, index, data, setData }) => {
                     :
                     null}
 
-                <button className="text-sm uppercase col-start-8 pl-4"
+                <button className="text-sm uppercase col-start-8 row-start-1 pl-4"
                     type="task"
                     onClick={() => setIsMenuActive(m => !isMenuActive)}>
                     <BiDotsVertical className={`text-3xl select-none pointer-events-none transition-all ${isMenuActive ? "rotate-90" : ""}`} />
