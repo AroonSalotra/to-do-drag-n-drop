@@ -21,9 +21,7 @@ const Home = ({ userId }) => {
     }, [])
 
     return (
-
         <>
-
             {isLoaded
                 ?
                 <form action=""
