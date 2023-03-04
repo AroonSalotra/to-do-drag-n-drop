@@ -35,7 +35,7 @@ const AddTask = ({ setData }) => {
                 className=""
                 onSubmit={handleFormSubmit}>
 
-                <input className={`${isInputActive ? "" : "hide"} absolute sm:-translate-x-[22.1rem] translate-y-12 left-0 sm:left-auto w-full sm:w-96 px-4 p-2`}
+                <input className={`${isInputActive ? "" : "hide"} absolute sm:-translate-x-[22.1rem] translate-y-12 left-0 sm:left-auto w-full sm:w-96 px-4 p-2 bg-neutral-700`}
                     value={textInput}
                     onChange={handleTextChange}
                     type="text"

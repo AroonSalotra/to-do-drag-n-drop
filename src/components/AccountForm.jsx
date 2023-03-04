@@ -55,7 +55,7 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                     name="useremail"
                     id="useremail"
                     placeholder="Your email"
-                    className="px-2 py-1"
+                    className="px-2 py-1 bg-neutral-700"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
                 />
@@ -64,7 +64,7 @@ const AccountForm = ({ formType, setShowBtns, setFormDisplay }) => {
                     name="userpassword"
                     id="userpassword"
                     placeholder="Your password"
-                    className="px-2 py-1"
+                    className="px-2 py-1 bg-neutral-700"
                     value={passwordInput}
                     onChange={(e) => setPasswordInput(e.target.value)}
                 />
